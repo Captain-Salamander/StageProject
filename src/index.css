@@ -1,0 +1,14 @@
+@font-face{
+  font-family: "Steelfish";
+  src: local("Steelfish"), url("./fonts/steelfish.otf") format("truetype");
+}
+
+@font-face{
+  font-family: "Energy";
+  src: local("Energy"), url("./fonts/engry.otf") format("truetype");
+}
+
+@font-face{
+  font-family: "Ptf";
+  src: local("Ptf"), url("./fonts/PTF55F.ttf") format("truetype");
+}
