@@ -27,8 +27,8 @@ export default function GenderTemplate({gender}){
                 <p>|</p>
                 <select name="" id="" onChange={(e)=>{setCategory(e.target.value)}} value={category}>
                     <option value="" selected disabled>Category</option>
-                    {gender?.categories?.map((category) => {
-                        return <option value={category}>{category}</option>
+                    {gender?.categories?.map((category, i) => {
+                        return <option value={category} key={i}>{category}</option>
                     })}
                 </select>
             </div> 
@@ -37,7 +37,7 @@ export default function GenderTemplate({gender}){
         <div className="gender-gallery">
             {gender?.products?.map(
                 (product) => {
-                    return <Product id={product.id} image={product.image} name={product.title} price={product.price}/>
+                    return <Product id={product.id} image={product.image} name={product.title} price={product.price} key={product.id}/>
                 }
             )}
                 

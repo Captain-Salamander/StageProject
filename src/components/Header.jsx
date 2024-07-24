@@ -13,8 +13,15 @@ function Header(){
     });
 
     useEffect(() => {
-      const handleScroll = () => {
-        if (window.scrollY >= 100) {
+      const handleScroll = () => {  
+       const hightelem = document.getElementById("hero")
+       let height;
+        if (hightelem) {
+          height = hightelem.offsetHeight
+        } else {
+          height = 100
+        }
+        if (window.scrollY >= height) {
           setSticky(true);
           console.log(true);
         } else {
@@ -22,12 +29,12 @@ function Header(){
         }
       };
       
-        window.addEventListener("scroll", handleScroll);
-    
-        return () => {
-          window.removeEventListener("scroll", handleScroll);
-        };
-      }, [inView, pathname]);
+      window.addEventListener("scroll", handleScroll);
+      
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }, []);
     return(
       <>
        <div ref={heroRef}></div>

@@ -11,7 +11,7 @@ const Hero = forwardRef((props,ref) =>{
 
     return(
         <div ref={ref}>
-            {window.screen.width > 1200 ? <div className="hero">
+            {window.screen.width > 1200 ? <div className="hero" id="hero">
                 <div className={`Women ${onWomenHover ? "hover" : ""}`} onMouseEnter={()=>{setOnWomenHover(true)}} onMouseLeave={()=>{setOnWomenHover(false)}}  onClick={() => {navigate("/women")}}>
                     <a href="#women" className="nav-link">Women</a>
                 
