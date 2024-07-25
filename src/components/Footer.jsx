@@ -12,23 +12,23 @@ function Footer(){
                 <div className="social_media_icons">
                     <ul className='list_icons'>
                         <li>
-                            <a href="" target='_blank'>
-                                <img class="img-fluid" src={Instagram} alt="instagram_icon"></img>
+                            <a href="https://www.instagram.com/" target='_blank'>
+                                <img className="img-fluid" src={Instagram} alt="instagram_icon"></img>
                             </a>
                         </li>
                         <li>
-                            <a href="" target='_blank'>
-                                <img class="img-fluid" src={Facebook} alt="instagram_icon"></img>
+                            <a href="https://www.facebook.com/" target='_blank'>
+                                <img className="img-fluid" src={Facebook} alt="instagram_icon"></img>
                             </a>
                         </li>
                         <li>
-                            <a href="" target='_blank'>
-                                <img class="img-fluid" src={Tiktok} alt="instagram_icon"></img>
+                            <a href="https://www.tiktok.com/explor" target='_blank'>
+                                <img className="img-fluid" src={Tiktok} alt="instagram_icon"></img>
                             </a>
                         </li>
                         <li>
-                            <a href="" target='_blank'>
-                                <img class="img-fluid" src={Twitter} alt="instagram_icon"></img>
+                            <a href="https://x.com/" target='_blank'>
+                                <img className="img-fluid" src={Twitter} alt="instagram_icon"></img>
                             </a>
                         </li>
                     </ul>
@@ -39,17 +39,17 @@ function Footer(){
                     <div className='columnf'>
                         <ul>
                             <li>
-                                <a href="/men" target='_blank'>
+                                <a href="/men" >
                                     <p>Men</p>
                                 </a>
                             </li>
                             <li>
-                                <a href="/women" target='_blank'>
+                                <a href="/women" >
                                     <p>Women</p>
                                 </a>
                             </li>
                             <li>
-                                <a href="/aboutus" target='_blank'>
+                                <a href="/aboutus">
                                     <p>About us</p>
                                 </a>
                             </li>
