@@ -13,22 +13,22 @@ function Footer(){
                     <ul className='list_icons'>
                         <li>
                             <a href="" target='_blank'>
-                                <img class="img-fluid" src={Instagram} alt="instagram_icon"></img>
+                                <img className="img-fluid" src={Instagram} alt="instagram_icon"></img>
                             </a>
                         </li>
                         <li>
                             <a href="" target='_blank'>
-                                <img class="img-fluid" src={Facebook} alt="instagram_icon"></img>
+                                <img className="img-fluid" src={Facebook} alt="instagram_icon"></img>
                             </a>
                         </li>
                         <li>
                             <a href="" target='_blank'>
-                                <img class="img-fluid" src={Tiktok} alt="instagram_icon"></img>
+                                <img className="img-fluid" src={Tiktok} alt="instagram_icon"></img>
                             </a>
                         </li>
                         <li>
                             <a href="" target='_blank'>
-                                <img class="img-fluid" src={Twitter} alt="instagram_icon"></img>
+                                <img className="img-fluid" src={Twitter} alt="instagram_icon"></img>
                             </a>
                         </li>
                     </ul>

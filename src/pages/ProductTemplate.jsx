@@ -47,8 +47,8 @@ export default function ProductTemplate(){
     return <>
     <section className="main-content">
         <div className="product-images">
-            {product?.image?.map((img) => {
-                return <div className="product-image">
+            {product?.image?.map((img, i) => {
+                return <div className="product-image" key={i}>
                 <img src={img} alt=""></img>
             </div>
             })}
@@ -98,7 +98,7 @@ export default function ProductTemplate(){
             <div className="recommended-products">
                 { recommended.map((rec) => {
                     console.log(rec.image)
-                    return <Product id={rec.id} image={rec.image} name={rec.title} price={rec.price}/>}) 
+                    return <Product id={rec.id} image={rec.image} name={rec.title} price={rec.price} />}) 
                 }
             </div>
         : 
