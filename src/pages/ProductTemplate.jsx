@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "../styles/ProductTemplate.scss";
 import DownArrow from "../assets/productTemplate/down-arrow.png";
-import Cancel from "../assets/productTemplate/cancelArrow.png"
+import Cancel from "../assets/productTemplate/cancelArrow.png";
 import { useParams } from "react-router-dom";
 import { men, women } from "../products";
 import Product from "../components/Product";
@@ -55,6 +55,8 @@ export default function ProductTemplate() {
           ? getRandomElements(men.products, 4)
           : getRandomElements(women.products, 4)
       );
+      const element = document.getElementsByClassName("product-images")[0]
+      element?.scroll({top: 0})
   }, [id, gender]);
 
   if (loading) {
@@ -129,46 +131,48 @@ export default function ProductTemplate() {
                 <img src={DownArrow} alt="DownArrow"></img>
               </div>
             </div>
-            {showProductInfo && (
-              <div className="expanded-container">
+            <div className="expanded-container">
+              <div
+                className={`product-details-text ${
+                  showProductInfo ? "show-info" : "hide-info"
+                }`}
+              >
                 <div
-                  className={`product-details-text ${
-                    showProductInfo ? "show-info" : "hide-info"
-                  }`}
+                  className="button"
+                  onClick={() => setShowProductInfo(false)}
                 >
-                  <div
-                    className="button"
-                    onClick={() => setShowProductInfo(false)}
-                  >
-                   <img src={Cancel} alt="Cancel Arrow" className="cancel-image"></img>
-                  </div>
-                  <p>
-                    Introducing the Contrast Stitch Carpenter Jacket in Mid
-                    Blue. Crafted from high quality, denim fabric this Jacket
-                    embodies both style and durability. The wide front pockets
-                    offer convenience, while the cross-over pleated design
-                    elevates the aesthetic appeal. Pair with the Contrast Stitch
-                    Carpenter Jean in Mid Blue for a completed ensemble.
-                    <br />
-                    <br />
-                    &#x2022; Relaxed Silhouette <br />
-                    &#x2022; Hammered Metal Silver Buttons
-                    <br />
-                    &#x2022; Wide-set Front Pockets
-                    <br />
-                    &#x2022; Cross-over Pleated Design to Back
-                    <br />
-                    &#x2022; Embossed Manière De Voir Eiffel to Centre Back
-                    <br />
-                    &#x2022; 100% Cotton
-                    <br />
-                    <br />
-                    Always check the care label for wash instructions.
-                    <br />
-                  </p>
+                  <img
+                    src={Cancel}
+                    alt="Cancel Arrow"
+                    className="cancel-image"
+                  ></img>
                 </div>
+                <p>
+                  Introducing the Contrast Stitch Carpenter Jacket in Mid Blue.
+                  Crafted from high quality, denim fabric this Jacket embodies
+                  both style and durability. The wide front pockets offer
+                  convenience, while the cross-over pleated design elevates the
+                  aesthetic appeal. Pair with the Contrast Stitch Carpenter Jean
+                  in Mid Blue for a completed ensemble.
+                  <br />
+                  <br />
+                  &#x2022; Relaxed Silhouette <br />
+                  &#x2022; Hammered Metal Silver Buttons
+                  <br />
+                  &#x2022; Wide-set Front Pockets
+                  <br />
+                  &#x2022; Cross-over Pleated Design to Back
+                  <br />
+                  &#x2022; Embossed Manière De Voir Eiffel to Centre Back
+                  <br />
+                  &#x2022; 100% Cotton
+                  <br />
+                  <br />
+                  Always check the care label for wash instructions.
+                  <br />
+                </p>
               </div>
-            )}
+            </div>
           </div>
         </div>
       </section>
