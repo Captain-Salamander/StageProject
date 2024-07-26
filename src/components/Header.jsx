@@ -48,7 +48,7 @@ function Header(){
         <span></span>
       </div>
       <div className={`burger-wrap ${openBurger ? "open" : ""}`}>
-        <div className={`burger-content` }>
+        <div className={`burger-content ${openBurger ? "content-open" : "content-close"}` }>
             <ul className="burger-navigation">
             <li>
                 <a href="/">Home</a>
