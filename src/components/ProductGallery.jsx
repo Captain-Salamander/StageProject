@@ -1,3 +1,4 @@
+import useMobile from '../customHooks/useMobile';
 import {men, women} from '../products'
 import Product from './Product';
 
@@ -8,6 +9,7 @@ function ProductGallery(){
     }
     const randomMenProducts = getRandomElements(men.products, 4);
     const randomWomenProducts = getRandomElements(women.products, 4);
+    const mobile = useMobile() 
     return(
        <>
         <p className='product_gallery_title'>Best sellers</p>

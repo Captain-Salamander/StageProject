@@ -3,15 +3,16 @@ import { useNavigate } from "react-router-dom"
 import {Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/pagination";
 import "swiper/css";
+import useMobile from "../customHooks/useMobile";
 
 const Hero = forwardRef((props,ref) =>{
     const navigate = useNavigate();
     const [onWomenHover, setOnWomenHover] = useState(false)
     const [onMenHover, setOnMenHover] = useState(false)
-
+    const mobile = useMobile() 
     return(
         <div ref={ref}>
-            {window.screen.width > 1200 ? <div className="hero" id="hero">
+            { !mobile ? <div className="hero" id="hero">
                 <div className={`Women ${onWomenHover ? "hover" : ""}`} onMouseEnter={()=>{setOnWomenHover(true)}} onMouseLeave={()=>{setOnWomenHover(false)}}  onClick={() => {navigate("/women")}}>
                     <a href="#women" className="nav-link">Women</a>
                 
