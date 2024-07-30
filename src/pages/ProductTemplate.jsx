@@ -10,6 +10,7 @@ import { Navigation, Pagination, Scrollbar } from "swiper/modules";
 import "swiper/css/pagination";
 import "swiper/css";
 import "../styles/Product.scss";
+import useMobile from "../customHooks/useMobile";
 
 export default function ProductTemplate() {
   const { id } = useParams();
@@ -19,6 +20,7 @@ export default function ProductTemplate() {
   const [loading, setLoading] = useState(true);
   const [selecSize, setSelecSize] = useState("M-L");
   const [showProductInfo, setShowProductInfo] = useState(false);
+  const mobile = useMobile() 
 
   useEffect(() => {
     if (showProductInfo) {
@@ -180,7 +182,7 @@ export default function ProductTemplate() {
         <div className="first-row">
           <p>Recommended for you</p>
         </div>
-        {window.screen.width > 1200 ? (
+        {!mobile ? (
           <div className="recommended-products">
             {recommended.map((rec) => {
               console.log(rec.image);
