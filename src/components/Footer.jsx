@@ -40,7 +40,7 @@ function Footer(){
                         <ul>
                             <li>
                                 <a href="/men" >
-                                    <p>Men</p>
+                                    <p className='top-title'>Men</p>
                                 </a>
                             </li>
                             <li>
@@ -49,7 +49,7 @@ function Footer(){
                                 </a>
                             </li>
                             <li>
-                                <a href="/aboutus">
+                                <a href="/about-us">
                                     <p>About us</p>
                                 </a>
                             </li>
@@ -61,7 +61,7 @@ function Footer(){
                     <div className='columnf'>
                         <ul>
                             <li>
-                                <p>Contact us</p>
+                                <p className='top-title'>Contact us</p>
                             </li>
                             <li>
                                 <a href="mailto:contact@grace.com" target="_blank">
@@ -72,7 +72,7 @@ function Footer(){
                                 </a>
                             </li>
                             <li>
-                                <a href="" target="_blank">
+                                <a href="https://www.google.com/maps/place/H%26M/@42.6945696,23.3207168,3a,75y,274h,92.94t/data=!3m6!1e1!3m4!1svK4bB8Az4TCq4rW3a7pQSA!2e0!7i13312!8i6656!4m16!1m9!4m8!1m0!1m6!1m2!1s0x40aa856c5021a881:0x49293a9f619fd306!2z0KHQvtGE0LjRjyDRhtC10L3RgtGK0YAsINCx0YPQuy4g4oCe0JLQuNGC0L7RiNCw4oCcIDEzLCAxMDAwINCh0L7RhNC40Y8!2m2!1d23.3209453!2d42.6944642!3m5!1s0x40aa856c5b5de98b:0xe5e134bcfabbbbcb!8m2!3d42.6945583!4d23.3204461!16s%2Fg%2F11cjjz82cx?hl=bg&coh=205409&entry=ttu" target="_blank">
                                     <div className='email-img'>
                                         <img  className="img-fluid" src={Location} alt="Photo 1"></img>
                                     </div>

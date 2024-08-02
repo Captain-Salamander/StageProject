@@ -274,14 +274,23 @@ body{
         margin: 0; /* Remove default margins from the paragraph */
         font-size: 18px; /* Adjust the font size as needed */
         color: grey; /* Optional: text color */
-        font-family: "Ptf"
+        font-family: "Ptf";
+        @media(max-width:1700px){
+          font-size: 16px;
+         
+        
     }
+   
+  }
     & h1{
         margin: 0; /* Remove default margins from the paragraph */
         font-size: 30px; /* Adjust the font size as needed */
         color: rgb(0, 0, 0); /* Optional: text color */
         font-family: "Energy";
         padding-top: 1%;
+        @media(max-width:1700px){
+          font-size: 28px;
+        }
     }
     & .footer-elements{
         display:grid;
@@ -297,7 +306,11 @@ body{
           gap:40px;
           padding: 4% 0;
         }
-
+     
+        & .top-title{
+          margin-top: 5%;
+        }
+        
         & .columnf{
             display:flex;
             justify-content: center;
@@ -370,11 +383,20 @@ body{
     }
     @media(max-width: 1200px) {
       justify-content: center;
-      gap: 30px;
+      gap: 30px !important;
       & li{
         & img{
           width: 28px;
           height: 28px;
+        }
+    }
+    }
+    @media(max-width: 1700px) {
+      gap: 250px;
+      & li{
+        & img{
+          width: 32px;
+          height: 32px;
         }
     }
     }

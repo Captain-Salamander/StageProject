@@ -105,6 +105,9 @@
             background-position: center bottom;
         }
         @media (max-width: 1200px) {
+            background-size: contain;
+        }
+        @media (max-width: 767px) {
             background-size: cover;
             margin: 3% 0 3%;
         }
@@ -141,9 +144,13 @@
             background-position: center bottom;
         }
         @media (max-width: 1200px) {
+            background-size: contain;
+        }
+        @media (max-width: 767px) {
             background-size: cover;
             margin: 3% 0 3%;
         }
+
         &.hover {
             & .nav-link {
                 display: block;
