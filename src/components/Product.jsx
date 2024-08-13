@@ -15,10 +15,10 @@ function Product({image, name, price, id}){
     return(
         <div className="product" onClick={() => {
             navigate(`/product/${id}`);
-            window.location.reload();
+           // window.location.reload();
         }}>
             <img src={currentImage} alt='profile picture' onMouseEnter={handleMouseEnter} 
-            onMouseLeave={handleMouseLeave} />
+            onMouseLeave={handleMouseLeave} preload/>
             <p className="product-name">{name} </p>
             <p className="product-price">${price}</p>
         </div>

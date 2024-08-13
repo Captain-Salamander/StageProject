@@ -20,7 +20,8 @@ export default function ProductTemplate() {
   const [loading, setLoading] = useState(true);
   const [selecSize, setSelecSize] = useState("M-L");
   const [showProductInfo, setShowProductInfo] = useState(false);
-  const mobile = useMobile() 
+  const [recLoading, setRecLoading] = useState(true);
+  const mobile = useMobile();
 
   useEffect(() => {
     if (showProductInfo) {
@@ -48,23 +49,32 @@ export default function ProductTemplate() {
         women.products.find((prod) => Number(id) === Number(prod?.id))
     );
     setLoading(false);
+    setRecommended([]);
+    setRecLoading(true)
   }, [id]);
 
   useEffect(() => {
-    gender !== "" &&
-      setRecommended(
-        gender === "men"
-          ? getRandomElements(men.products, 4)
-          : getRandomElements(women.products, 4)
-      );
-      const element = document.getElementsByClassName("product-images")[0]
-      element?.scroll({top: 0})
+    if(gender) {
+
+      const recommendedProducts = gender === 'men'
+        ? getRandomElements(men.products, 4)
+        : getRandomElements(women.products, 4);
+  
+      setRecommended(recommendedProducts);
+    }
+    const element = document.getElementsByClassName("product-images")[0];
+    element?.scroll({ top: 0 });
   }, [id, gender]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setRecLoading(false);
+    }, 500)
+  }, [id]);
 
   if (loading) {
     return <div>Loading...</div>;
   }
-
   return (
     <>
       <section className="main-content">
@@ -149,79 +159,61 @@ export default function ProductTemplate() {
                     className="cancel-image"
                   ></img>
                 </div>
-                <p>
-                  Introducing the Contrast Stitch Carpenter Jacket in Mid Blue.
-                  Crafted from high quality, denim fabric this Jacket embodies
-                  both style and durability. The wide front pockets offer
-                  convenience, while the cross-over pleated design elevates the
-                  aesthetic appeal. Pair with the Contrast Stitch Carpenter Jean
-                  in Mid Blue for a completed ensemble.
-                  <br />
-                  <br />
-                  &#x2022; Relaxed Silhouette <br />
-                  &#x2022; Hammered Metal Silver Buttons
-                  <br />
-                  &#x2022; Wide-set Front Pockets
-                  <br />
-                  &#x2022; Cross-over Pleated Design to Back
-                  <br />
-                  &#x2022; Embossed Manière De Voir Eiffel to Centre Back
-                  <br />
-                  &#x2022; 100% Cotton
-                  <br />
-                  <br />
-                  Always check the care label for wash instructions.
-                  <br />
-                </p>
+                <p
+                  dangerouslySetInnerHTML={{ __html: product.description }}
+                ></p>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section className="recommended">
-        <div className="first-row">
-          <p>Recommended for you</p>
-        </div>
-        {!mobile ? (
-          <div className="recommended-products">
-            {recommended.map((rec) => {
-              console.log(rec.image);
-              return (
-                <Product
-                  id={rec.id}
-                  image={rec.image}
-                  name={rec.title}
-                  price={rec.price}
-                />
-              );
-            })}
+      {!recLoading && (
+        <section className="recommended">
+          <div className="first-row">
+            <p>Recommended for you</p>
           </div>
-        ) : (
-          <Swiper
-            spaceBetween={10}
-            slidesPerView={1.5}
-            centeredSlides={true}
-            initialSlide={1}
-            pagination={{ clickable: true }}
-            modules={[Navigation, Pagination, Scrollbar]}
-            loop
-            className="recommended-products"
-          >
-            {recommended.map((rec) => {
-              return (
-                <SwiperSlide>
-                  <Product
-                    id={rec.id}
-                    image={rec.image}
-                    name={rec.title}
-                    price={rec.price}
-                  />
-                </SwiperSlide>
-              );
-            })}
-          </Swiper>
-        )}
-      </section>
+          {!mobile ? (
+            <div className="recommended-products">
+              {recommended.map((rec) => {
+                if (rec.image) {
+                  return (
+                    <Product
+                      id={rec.id}
+                      image={rec.image}
+                      name={rec.title}
+                      price={rec.price}
+                    />
+                  );
+                }
+              })}
+            </div>
+          ) : (
+            <Swiper
+              spaceBetween={10}
+              slidesPerView={1.5}
+              centeredSlides={true}
+              initialSlide={1}
+              pagination={{ clickable: true }}
+              modules={[Navigation, Pagination, Scrollbar]}
+              loop
+              className="recommended-products"
+            >
+              {recommended.map((rec) => {
+                return (
+                  <SwiperSlide>
+                    <Product
+                      id={rec.id}
+                      image={rec.image}
+                      name={rec.title}
+                      price={rec.price}
+                    />
+                  </SwiperSlide>
+                );
+              })}
+            </Swiper>
+          )}
+        </section>
+      )}
     </>
   );
 }
