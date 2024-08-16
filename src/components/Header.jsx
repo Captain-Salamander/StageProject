@@ -23,7 +23,6 @@ function Header(){
         }
         if (window.scrollY >= height) {
           setSticky(true);
-          console.log(true);
         } else {
           setSticky(false);
         }
@@ -38,7 +37,7 @@ function Header(){
     return(
       <>
        <div ref={heroRef}></div>
-        <header className={`${sticky ? "sticky" : ""} ${url==="/" ? "home" : ""}`}>
+        <header id="header" className={`${sticky ? "sticky" : ""} ${url==="/" ? "home" : ""}`} onMouseEnter={()=>{setSticky(true)}} onMouseLeave={()=>{setSticky(false)}}>
             <div
         className={`burger-menu ${openBurger ? "open" : ""}`}
         onClick={() => setOpenBurger(!openBurger)}

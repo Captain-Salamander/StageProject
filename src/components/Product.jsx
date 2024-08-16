@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 function Product({image, name, price, id}){
     const navigate = useNavigate();
     const [currentImage, setCurrentImage] = useState(image && image[0]);
+    
 
     const handleMouseEnter = () => {
         setCurrentImage(image[1]);

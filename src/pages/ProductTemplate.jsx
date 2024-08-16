@@ -23,6 +23,7 @@ export default function ProductTemplate() {
   const [recLoading, setRecLoading] = useState(true);
   const mobile = useMobile();
 
+
   useEffect(() => {
     if (showProductInfo) {
       document.body.style.overflowY = "hidden";
@@ -72,13 +73,26 @@ export default function ProductTemplate() {
     }, 500)
   }, [id]);
 
+  const [isScrolling, setIsScrolling] = useState(false);
+
+  const handleScroll = (e) => { 
+    const header = document.getElementById('header');
+    const gallery = document.getElementById('gallery');
+
+    header.classList.add('sticky');
+    setIsScrolling(true);
+    if (gallery.scrollTop  === 0 ) {
+      header.classList.remove('sticky');
+    }
+  };
+
   if (loading) {
     return <div>Loading...</div>;
   }
   return (
     <>
       <section className="main-content">
-        <div className="product-images">
+        <div className="product-images" onScroll={handleScroll} id = 'gallery'>
           {product?.image?.map((img, i) => {
             return (
               <div className="product-image" key={i}>
